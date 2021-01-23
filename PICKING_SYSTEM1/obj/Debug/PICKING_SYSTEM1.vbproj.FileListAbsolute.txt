@@ -1,0 +1,59 @@
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\bin\Debug\PICKING_SYSTEM1.exe
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\bin\Debug\PICKING_SYSTEM1.pdb
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\bin\Debug\PICKING_SYSTEM1.xml
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.Resources.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM1.vbproj.GenerateResource.Cache
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM1.exe
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM1.xml
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM1.pdb
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.Select_PD.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.main.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.Select_Line.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\bin\Debug\yo-NG\PICKING_SYSTEM1.resources.dll
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.Select_Line.yo-NG.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\yo-NG\PICKING_SYSTEM1.resources.dll
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.scan_location.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.part_detail.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\bin\Debug\btcommlibnet.dll
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\bin\Debug\btlibdefnet.dll
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\bin\Debug\btsyslibnet.dll
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.detail_scan.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\bin\Debug\System.Data.OracleClient.dll
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\bin\Debug\System.Transactions.dll
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\bin\Debug\System.EnterpriseServices.dll
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\bin\Debug\System.Web.dll
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\bin\Debug\System.EnterpriseServices.Wrapper.dll
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.img_user.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.show_image_part.resources
+C:\home3\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\ResolveAssemblyReference.cache
+C:\home3\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.detail_scan.resources
+C:\home3\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.main.resources
+C:\home3\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.Resources.resources
+C:\home3\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.part_detail.resources
+C:\home3\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.PO_NO.resources
+C:\home3\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.scan_location.resources
+C:\home3\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.Select_Line.resources
+C:\home3\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.Select_PD.resources
+C:\home3\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.img_user.resources
+C:\home3\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.show_image_part.resources
+C:\home3\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.Select_Line.yo-NG.resources
+C:\home3\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM1.vbproj.GenerateResource.Cache
+C:\home3\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM1.xml
+C:\home3\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM1.pdb
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.Home.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.reprint.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.setting.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.select_pick_add.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.part_detail_add.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.return_part.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.cut_ng.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.Select_plan_fg.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.Select_plan_fg.yo-NG.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.part_detail_fg.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.scan_location_fg.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.Rework_FG.resources
+C:\Users\kidakarn_i\Documents\Visual Studio 2008\Projects\PICKING_SYSTEM1\PICKING_SYSTEM1\obj\Debug\PICKING_SYSTEM.Detail_rework_fg.resources

@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PICKING_SYSTEM.connect" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAIQAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>connect.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.cut_ng" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAECAAAAAAAACAEAACAAgAACABAAAAAAAAAAA=</HashCode>
+      <FileName>cut_ng.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.Detail_rework_fg" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAABEigAhBAIIBjEABkCEIEBYlEoAZjYAABUEEE=</HashCode>
+      <FileName>Detail_rework_fg.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.detail_scan" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACEAAAAAAACAAAACAAAAAAABgAAAAAAAAAA=</HashCode>
+      <FileName>detail_scan.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.Home" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EBAQAAoAECIIAAAAAgCCAAASoIgAAACBAEAAAIAIAEA=</HashCode>
+      <FileName>Home.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.img_user" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAgAAAAACBAAABIIACAAAACgoAAIQABAEAIAAAdACA=</HashCode>
+      <FileName>img_user.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.main" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>0FQxIA4KkSJIIKhxCgGCEigSoMjwQgCREHwAAMAdJGI=</HashCode>
+      <FileName>main.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.Page_projects" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAACAAAAAAAAAAAAAAAAAAABACAAABAAA=</HashCode>
+      <FileName>Page_projects.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.part_detail" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>VttnEwJ9P6vdrPVrjN2X1b+b0+80/L+9r//NNqrd/vc=</HashCode>
+      <FileName>part_detail.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.part_detail_add" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>VttnEwJ9P6vdrPVrjN2X1b+b0+80/L+9r//NNqrd/vc=</HashCode>
+      <FileName>part_detail_add.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.part_detail_fg" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>VttnEwJ9P6vdrPVrjN2X1b+b0+80/L+9r//NNqrd/vc=</HashCode>
+      <FileName>part_detail_fg.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.reprint" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RNhiQgI4NybIJPVghkSClQIawuYwRI+1a9EWBqBdPqc=</HashCode>
+      <FileName>reprint.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.return_part" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RJhDAgI4d6CBAHJAhESgETiagOhQcoYBgFIcJABYOoA=</HashCode>
+      <FileName>return_part.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.Rework_FG" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAkCBwIAAAAACAERgCAAAAYAIBAAAAAgAAoAA=</HashCode>
+      <FileName>Rework_FG.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.scan_location" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>VJxiQAosNWDIYHBQAFaiEYwagMAUSIIhgFBMQoBdtqA=</HashCode>
+      <FileName>scan_location.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.scan_location_fg" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>VJxiQAosNWCIYHBQAFaiEYwagMAUSIIhgFBMQoBdtqA=</HashCode>
+      <FileName>scan_location_fg.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.Select_Line" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARoiAAQFCFAaCAXApCjGDAPAIzwdACVROBYAgkdhAA=</HashCode>
+      <FileName>Select_Line.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.Select_PD" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgAwAAEIECICAABgAAGAEAgCgsgAQAARAEDYAAAZICA=</HashCode>
+      <FileName>Select_PD.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.select_pick_add" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QJAIAABgGCCAAAACAAqCEhhCAIzwYAABAMAQAAAYICA=</HashCode>
+      <FileName>select_pick_add.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.Select_plan_fg" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DIXqiAhBEz1S6GAWD8i1WDJGEMkwVJm9DMjyAEmfhkg=</HashCode>
+      <FileName>Select_plan_fg.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.setting" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAECAAAAAACACAEBgSgIgQYAABAEAQAAAYAAA=</HashCode>
+      <FileName>setting.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PICKING_SYSTEM.show_image_part" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAACAAAAAAIACAAAACAAAQAAADAAAAAAAAAAA=</HashCode>
+      <FileName>show_image_part.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Module Name="PICKING_SYSTEM.Api" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAQABAAAAAAIAAA=</HashCode>
+      <FileName>Module\Api.vb</FileName>
+    </TypeIdentifier>
+  </Module>
+  <Module Name="PICKING_SYSTEM.Module1" Collapsed="true">
+    <Position X="2.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AqMGwAIxN0RAQFBWEWhRAwoXIsggQACMJIGHAAqw1oE=</HashCode>
+      <FileName>Module\Module1.vb</FileName>
+    </TypeIdentifier>
+  </Module>
+  <Module Name="PICKING_SYSTEM.My.Resources.Resources" Collapsed="true">
+    <Position X="4" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Module>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

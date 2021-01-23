@@ -1,0 +1,10 @@
+C:\Users\kidakarn_i\AppData\Local\Temporary Projects\PICKING_SYSTEM\bin\Debug\PICKING_SYSTEM.exe
+C:\Users\kidakarn_i\AppData\Local\Temporary Projects\PICKING_SYSTEM\bin\Debug\PICKING_SYSTEM.pdb
+C:\Users\kidakarn_i\AppData\Local\Temporary Projects\PICKING_SYSTEM\bin\Debug\PICKING_SYSTEM.xml
+C:\Users\kidakarn_i\AppData\Local\Temporary Projects\PICKING_SYSTEM\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\kidakarn_i\AppData\Local\Temporary Projects\PICKING_SYSTEM\obj\Debug\PICKING_SYSTEM.Resources.resources
+C:\Users\kidakarn_i\AppData\Local\Temporary Projects\PICKING_SYSTEM\obj\Debug\PICKING_SYSTEM.vbproj.GenerateResource.Cache
+C:\Users\kidakarn_i\AppData\Local\Temporary Projects\PICKING_SYSTEM\obj\Debug\PICKING_SYSTEM.exe
+C:\Users\kidakarn_i\AppData\Local\Temporary Projects\PICKING_SYSTEM\obj\Debug\PICKING_SYSTEM.xml
+C:\Users\kidakarn_i\AppData\Local\Temporary Projects\PICKING_SYSTEM\obj\Debug\PICKING_SYSTEM.pdb
+C:\Users\kidakarn_i\AppData\Local\Temporary Projects\PICKING_SYSTEM\obj\Debug\PICKING_SYSTEM.Form1.resources
