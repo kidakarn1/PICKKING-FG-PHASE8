@@ -28,4 +28,8 @@ Public Class Home
     Private Sub Label3_ParentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label3.ParentChanged
 
     End Sub
+
+    Private Sub Panel1_GotFocus(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Panel1.GotFocus
+
+    End Sub
 End Class

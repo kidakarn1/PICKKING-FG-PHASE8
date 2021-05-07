@@ -39,7 +39,6 @@ Module Api
 
             ' Cleanup
             _WebResponse.Close()
-            _WebResponse.Close()
         Catch _Exception As Exception
             ' Error
             'Console.WriteLine("Exception caught in process: {0}", _Exception.ToString())
@@ -75,6 +74,42 @@ Module Api
         Return re_data
     End Function
 
+    Public Function check_net()
+        ' MsgBox("01")
+        Dim _tmpImage As Image = Nothing
+        Dim re_data = "NO_DATA"
+        Try
+            'MsgBox("02")
+            ' Open a connection
+            Dim _HttpWebRequest As System.Net.HttpWebRequest = CType(System.Net.HttpWebRequest.Create("http://192.168.82.23/member/photo/k0071.jpg"), System.Net.HttpWebRequest)
+            'MsgBox("03")
+            _HttpWebRequest.AllowWriteStreamBuffering = True
+            'MsgBox("04")
+            ' You can also specify additional header values like the user agent or the referer: (Optional)
+            _HttpWebRequest.UserAgent = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)"
+            _HttpWebRequest.Referer = "http://www.google.com/"
+            'MsgBox("05")
+            ' set timeout for 20 seconds (Optional)
+            _HttpWebRequest.Timeout = 20000
+            ' MsgBox("06")
+            ' Request response:
+            Dim _WebResponse As System.Net.WebResponse = _HttpWebRequest.GetResponse()
+
+            ' Open data stream:
+            Dim _WebStream As System.IO.Stream = _WebResponse.GetResponseStream()
+
+            ' convert webstream to image
+            _tmpImage = New System.Drawing.Bitmap(_WebStream)
+            ' Cleanup
+            _WebResponse.Close()
+            Return True
+        Catch _Exception As Exception
+            ' Error
+            'Console.WriteLine("Exception caught in process: {0}", _Exception.ToString())
+            Return False
+        End Try
+        Return re_data
+    End Function
 
     Public Function Get_order_fg(ByVal _URL As String) As String
         Dim _tmpImage As Image = Nothing

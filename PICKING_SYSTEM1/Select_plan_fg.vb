@@ -42,6 +42,7 @@ Public Class Select_plan_fg
     Public Trip As String = "NO_DATA"
     Dim wi As String = ""
     Public part As part_detail
+    Public line, counter As String
     Dim arr_LVL As ArrayList = New ArrayList()
     Dim arr_QTY As ArrayList = New ArrayList()
     Dim arr_com_flg As ArrayList = New ArrayList()
@@ -80,14 +81,22 @@ Public Class Select_plan_fg
     Dim F_id_sup As ArrayList = New ArrayList()
     Dim dat As String = String.Empty
     Dim M_SLIP_CD As String = "NO_DATA"
+    Public count_net As Integer = 0
 
 
     Private Sub selLine_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
 LOOP_MAIN_OPEN:
-            Dim connect_db = New connect()
-            myConn = connect_db.conn()
-            myconn_fa = connect_db.conn_fa()
+re_connect:
+            If Api.check_net() = True Then
+                Dim connect_db = New connect()
+                myConn = connect_db.conn()
+                myconn_fa = connect_db.conn_fa()
+            Else
+                Timer1.Enabled = False
+                MsgBox("อินเตอร์เน็ตไม่เสถียร กรุณา กด ENT เพื่อ รอ INTERNET")
+                GoTo re_connect
+            End If
         Finally
             'Module1.M_QTY_LOT_ALL = 0
             'combobox_line()
@@ -100,10 +109,6 @@ LOOP_MAIN_OPEN:
             check_action = 2
             Panel3.Visible = False
             Panel8.Visible = False
-
-            If True Then
-
-            End If
             OK_CON.Visible = False
             ComboBox1.Items.Add("8")
             ComboBox1.Items.Add("10")
@@ -284,6 +289,17 @@ NEXT_END_WEB_POST:
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         ml += 1
         status += 5
+recheck_net:
+        'If count_net = 1000 Then
+        'If Api.check_net <> True Then
+        'MsgBox("อินเตอร์เน็ตไม่เสถียร กรุณา กด ENT เพื่อ รอ INTERNET")
+        'GoTo recheck_net
+        'Else
+        'count_net = 0
+        'End If
+        'Else
+        'count_net += 1
+        'End If
         If ml <= 1 Then
             PictureBox10.Visible = True
             PictureBox11.Visible = False
@@ -384,8 +400,7 @@ NEXT_END_WEB_POST:
         result_get_model = New ArrayList()
         SLIP_CD = New ArrayList()
         Try
-
-            Dim time As DateTime = DateTime.Now
+            Dim time As DateTime = Today.AddDays("-1") 'DateTime.Now
             Dim format As String = "yyyy-MM-dd HH:mm:ss"
             Dim date_now = time.ToString(format)
 
@@ -397,7 +412,7 @@ NEXT_END_WEB_POST:
             Dim format_time_detail As String = "HH:mm"
             Dim now_time_detail = time_detail.ToString(format_time_detail)
 
-            Dim date_detail As DateTime = DateTime.Now
+            Dim date_detail As DateTime = Today.AddDays("-1") 'DateTime.Now
             Dim format_date_detail As String = "yyyy/MM/dd"
             Dim now_date_detail = date_detail.ToString(format_date_detail)
             'result_get_CUST_ODR_NO = Api.Get_order_fg("http://192.168.161.102/exp_api3party/Api_get_order_fg/get_CUST_ODR_NO?phase=" & ComboBox1.Text & "")
@@ -496,7 +511,7 @@ NEXT_END_WEB_POST:
 
             End Try
             '  Dim cut_fg = FG_part.Substring(0, 11)
-            Dim sql As String = "select * from FA_TAG_FG where ITEM_CD = '" & FG_part & "'  order by LOT_NO asc"
+            Dim sql As String = "select TOP 1.* from FA_TAG_FG where ITEM_CD = '" & FG_part & "'  order by LOT_NO asc"
             ' MsgBox("sql_check = " & sql)
             Dim command_FA_TAG_FG As SqlCommand = New SqlCommand(sql, myconn_fa)
             reader = command_FA_TAG_FG.ExecuteReader()
@@ -991,6 +1006,20 @@ NEXT_END_WEB_POST:
         reader.Close()
     End Sub
     Public Sub set_day()
+        'days.Items.Add("-14")
+        'days.Items.Add("-13")
+        'days.Items.Add("-12")
+        'days.Items.Add("-11")
+        ' days.Items.Add("-10")
+        ' days.Items.Add("-9")
+        ' days.Items.Add("-8")
+        ' days.Items.Add("-7")
+        ' days.Items.Add("-6")
+        ' days.Items.Add("-5")
+        ' days.Items.Add("-4")
+        ' days.Items.Add("-3")
+        ' days.Items.Add("-2")
+        'days.Items.Add("-1")
         days.Items.Add("1")
         days.Items.Add("2")
         days.Items.Add("3")
@@ -999,5 +1028,6 @@ NEXT_END_WEB_POST:
         days.Items.Add("6")
         days.Items.Add("7")
     End Sub
-    Public line, counter As String
+
+
 End Class

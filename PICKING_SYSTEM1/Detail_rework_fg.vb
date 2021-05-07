@@ -94,7 +94,6 @@ Public Class Detail_rework_fg
 
     Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Try
-
             If TAG_ID(0) = Not Nothing Then
                 MsgBox("NOT SCAN")
             End If

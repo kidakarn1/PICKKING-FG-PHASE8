@@ -2,5 +2,6 @@
   <PropertyGroup>
     <DeployDeviceID>F22EFE3A-71C7-4654-A058-2ECE73C3F5B3</DeployDeviceID>
     <ProjectView>ShowAllFiles</ProjectView>
+    <ReferencePath>C:\Users\kidakarn_i\Downloads\System.Net.NetworkInformation.dll (1)\</ReferencePath>
   </PropertyGroup>
 </Project>

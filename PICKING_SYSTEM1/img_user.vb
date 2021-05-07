@@ -24,8 +24,9 @@ Public Class img_user
     Public index As Integer
     Private Sub test_img_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
-            myConn = New SqlConnection("Data Source=192.168.161.101;Initial Catalog=tbkkfa01_dev;Integrated Security=False;User Id=pcs_admin;Password=P@ss!fa")
-            myConn.Open()
+
+            Dim connect_db = New connect()
+            myConn = connect_db.conn()
         Catch ex As Exception
             MsgBox("Connect Database Fail" & vbNewLine & ex.Message, 16, "Status naja")
         Finally
@@ -39,17 +40,7 @@ Public Class img_user
     End Sub
     Public Sub New()
         InitializeComponent()
-        Try
-            If Api.DownloadImage("http://192.168.82.23/member/photo/" & Module1.user_id & ".jpg") IsNot Nothing Then
-                PictureBox2.Image = Api.DownloadImage("http://192.168.82.23/member/photo/" & Module1.user_id & ".jpg")
-                Dim result As String = Api.update_data("http://192.168.161.102/exp_api3party/Api_cut_stock_web_post/get_data_service?ITEM_CD=%221234%22")
-                MsgBox("status = " & result)
-            End If
-
-        Catch ex As Exception
-
-        End Try
-
+        
     End Sub
 
     Private Sub Label1_ParentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles name_user.ParentChanged

@@ -22,9 +22,12 @@ Partial Public Class Rework_FG
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Rework_FG))
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.Panel_select = New System.Windows.Forms.Panel
+        Me.Label1 = New System.Windows.Forms.Label
+        Me.Panel2 = New System.Windows.Forms.Panel
         Me.Button5 = New System.Windows.Forms.Button
         Me.Button4 = New System.Windows.Forms.Button
         Me.Button3 = New System.Windows.Forms.Button
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.Panel_confirm = New System.Windows.Forms.Panel
         Me.btn_CANCEL = New System.Windows.Forms.Button
         Me.btn_confirm = New System.Windows.Forms.Button
@@ -39,9 +42,6 @@ Partial Public Class Rework_FG
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.Button1 = New System.Windows.Forms.Button
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.Panel2 = New System.Windows.Forms.Panel
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.Panel1.SuspendLayout()
         Me.Panel_select.SuspendLayout()
         Me.Panel_confirm.SuspendLayout()
@@ -80,6 +80,21 @@ Partial Public Class Rework_FG
         Me.Panel_select.Name = "Panel_select"
         Me.Panel_select.Size = New System.Drawing.Size(476, 590)
         '
+        'Label1
+        '
+        Me.Label1.Font = New System.Drawing.Font("Tahoma", 36.0!, System.Drawing.FontStyle.Bold)
+        Me.Label1.Location = New System.Drawing.Point(0, 18)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(332, 58)
+        Me.Label1.Text = "REWORK FG"
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.DarkOrange
+        Me.Panel2.Location = New System.Drawing.Point(0, 81)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(488, 17)
+        '
         'Button5
         '
         Me.Button5.BackColor = System.Drawing.Color.Red
@@ -111,6 +126,14 @@ Partial Public Class Rework_FG
         Me.Button3.Size = New System.Drawing.Size(325, 187)
         Me.Button3.TabIndex = 0
         Me.Button3.Text = "FULL"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 92)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(476, 495)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         '
         'Panel_confirm
         '
@@ -244,29 +267,6 @@ Partial Public Class Rework_FG
         Me.Button1.Size = New System.Drawing.Size(207, 90)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "OK"
-        '
-        'Label1
-        '
-        Me.Label1.Font = New System.Drawing.Font("Tahoma", 36.0!, System.Drawing.FontStyle.Bold)
-        Me.Label1.Location = New System.Drawing.Point(0, 18)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(332, 58)
-        Me.Label1.Text = "REWORK FG"
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.DarkOrange
-        Me.Panel2.Location = New System.Drawing.Point(0, 81)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(488, 17)
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 92)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(476, 495)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         '
         'Rework_FG
         '

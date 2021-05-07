@@ -22,13 +22,14 @@ Partial Public Class Select_plan_fg
         Me.components = New System.ComponentModel.Container
         Dim Button1 As System.Windows.Forms.Button
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Select_plan_fg))
-        Dim ListViewItem3 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem
+        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.Panel2 = New System.Windows.Forms.Panel
         Me.LB_DAY = New System.Windows.Forms.Label
         Me.days = New System.Windows.Forms.ComboBox
         Me.p_show_confrim = New System.Windows.Forms.Panel
         Me.Button4 = New System.Windows.Forms.Button
+        Me.Button3 = New System.Windows.Forms.Button
         Me.OK_CON = New System.Windows.Forms.Button
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.ComboBox2 = New System.Windows.Forms.ComboBox
@@ -67,7 +68,6 @@ Partial Public Class Select_plan_fg
         Me.Label4 = New System.Windows.Forms.Label
         Me.Timer1 = New System.Windows.Forms.Timer
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Button3 = New System.Windows.Forms.Button
         Button1 = New System.Windows.Forms.Button
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -142,6 +142,13 @@ Partial Public Class Select_plan_fg
         Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         resources.ApplyResources(Me.Button4, "Button4")
         Me.Button4.Name = "Button4"
+        '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        resources.ApplyResources(Me.Button3, "Button3")
+        Me.Button3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Button3.Name = "Button3"
         '
         'OK_CON
         '
@@ -267,8 +274,8 @@ Partial Public Class Select_plan_fg
         Me.Line_list_view.Columns.Add(Me.ColumnHeader4)
         resources.ApplyResources(Me.Line_list_view, "Line_list_view")
         Me.Line_list_view.FullRowSelect = True
-        ListViewItem3.Text = resources.GetString("Line_list_view.Items")
-        Me.Line_list_view.Items.Add(ListViewItem3)
+        ListViewItem1.Text = resources.GetString("Line_list_view.Items")
+        Me.Line_list_view.Items.Add(ListViewItem1)
         Me.Line_list_view.Name = "Line_list_view"
         Me.Line_list_view.View = System.Windows.Forms.View.Details
         '
@@ -372,13 +379,6 @@ Partial Public Class Select_plan_fg
         '
         'Timer1
         '
-        '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        resources.ApplyResources(Me.Button3, "Button3")
-        Me.Button3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Button3.Name = "Button3"
         '
         'Select_plan_fg
         '

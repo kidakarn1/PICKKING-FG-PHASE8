@@ -90,9 +90,11 @@ Partial Public Class part_detail_fg
         Me.alert_detail = New System.Windows.Forms.PictureBox
         Me.alert_pickdetail_ok = New System.Windows.Forms.PictureBox
         Me.Panel7 = New System.Windows.Forms.Panel
+        Me.alert_14_day = New System.Windows.Forms.PictureBox
         Me.alert_no_tranfer_data = New System.Windows.Forms.PictureBox
         Me.alert_open_printer = New System.Windows.Forms.PictureBox
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
+        Me.Timer1 = New System.Windows.Forms.Timer
         Me.Panel1.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -748,6 +750,7 @@ Partial Public Class part_detail_fg
         '
         'Panel7
         '
+        Me.Panel7.Controls.Add(Me.alert_14_day)
         Me.Panel7.Controls.Add(Me.alert_pa)
         Me.Panel7.Controls.Add(Me.alert_success_remain)
         Me.Panel7.Controls.Add(Me.alert_success)
@@ -763,6 +766,14 @@ Partial Public Class part_detail_fg
         Me.Panel7.Location = New System.Drawing.Point(57, 171)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(413, 351)
+        '
+        'alert_14_day
+        '
+        Me.alert_14_day.Image = CType(resources.GetObject("alert_14_day.Image"), System.Drawing.Image)
+        Me.alert_14_day.Location = New System.Drawing.Point(-1, 3)
+        Me.alert_14_day.Name = "alert_14_day"
+        Me.alert_14_day.Size = New System.Drawing.Size(414, 348)
+        Me.alert_14_day.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         '
         'alert_no_tranfer_data
         '
@@ -883,4 +894,6 @@ Partial Public Class part_detail_fg
     Friend WithEvents alert_no_tranfer_data As System.Windows.Forms.PictureBox
     Friend WithEvents check_qr As System.Windows.Forms.TextBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents alert_14_day As System.Windows.Forms.PictureBox
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

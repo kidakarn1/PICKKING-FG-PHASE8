@@ -1,4 +1,5 @@
 ﻿Imports System.Runtime.InteropServices
+Imports System.Net
 Imports System.Data
 'Imports System.Data.SqlServerCe
 Imports System.Data.SqlClient
@@ -8,8 +9,6 @@ Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 Imports System.Windows.Forms.Form
 Imports System
-Imports System.Net
-Imports System.Linq
 Public Class main
     Public scan_terminal_id = "NO_DATA" 'GetIPAddress()
     Public pin_printer = "NO_DATA" 'GetIPAddress()
@@ -33,18 +32,22 @@ Public Class main
     Public status As Integer = 0
     Dim re_data As ArrayList = New ArrayList()
     Public myConn = "NOO"
-    Public Sub check_load()
-
-    End Sub
+    Public count_net As Integer = 0
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             'myConn = New SqlConnection("Data Source= 192.168.10.19\SQLEXPRESS2017,1433;Initial Catalog=tbkkfa01_dev;Integrated Security=False;User Id=sa;Password=p@sswd;")
             'myConn = New SqlConnection("Data Source=192.168.161.101;Initial Catalog=tbkkfa01_dev;Integrated Security=False;User Id=pcs_admin;Password=P@ss!fa")
             'myConn.Open()
-            Dim connect_db = New connect()
-            myConn = connect_db.conn()
+reconnect:
+            If Api.check_net() = True Then
+                Dim connect_db = New connect()
+                myConn = connect_db.conn()
+                set_data_handheld()
+            Else
+                MsgBox("กรุณา รอ Internet")
+                GoTo reconnect
+            End If
         Finally
-            set_data_handheld()
             Panel1.Show()
             PictureBox8.Visible = False
             Label4.Visible = False
@@ -58,7 +61,6 @@ Public Class main
             ' get_image_user()
             Panel2.Visible = False
             setting.Visible = False
-
         End Try
     End Sub
     Private Sub Label1_ParentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -73,7 +75,6 @@ Public Class main
 
     Private Sub Label2_ParentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label2.TextChanged
         Label2.Text = "DATE" + ": " + DateTime.Now.ToString("dd-MM-yyyy")
-
     End Sub
 
     Private Sub Panel1_GotFocus(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -98,6 +99,7 @@ Public Class main
                 'End If
         End Select
     End Sub
+
     Public Function show_code_id_user() As String
         Return code_id_user
     End Function
@@ -173,10 +175,7 @@ Public Class main
                 PictureBox20.Visible = False
                 PictureBox2.Visible = False
                 Label8.Visible = False
-                PictureBox19.Visible = False
-                Label12.Visible = False
                 PictureBox21.Visible = True
-                PictureBox22.Visible = True
                 Label13.Visible = True
                 'get_image_user()
             End If
@@ -358,6 +357,17 @@ Public Class main
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         ml += 1
         status += 5
+recheck_net:
+        If count_net = 5000 Then
+            If Api.check_net <> True Then
+                MsgBox("อินเตอร์เน็ตไม่เสถียร กรุณา กด ENT เพื่อ รอ INTERNET")
+                GoTo recheck_net
+            Else
+                count_net = 0
+            End If
+        Else
+            count_net += 1
+        End If
         If ml <= 1 Then
             PictureBox10.Visible = True
             PictureBox11.Visible = False
@@ -443,18 +453,23 @@ Public Class main
 
     End Sub
     Private Function GetIPAddress()
+         If Api.check_net() = True Then 
+            Dim strHostName As String
 
-        Dim strHostName As String
+            Dim strIPAddress As String
 
-        Dim strIPAddress As String
+            strHostName = System.Net.Dns.GetHostName()
 
-        strHostName = System.Net.Dns.GetHostName()
-        strIPAddress = System.Net.Dns.GetHostByName(strHostName).AddressList(1).ToString()
-        Return strIPAddress
+            strIPAddress = System.Net.Dns.GetHostByName(strHostName).AddressList(1).ToString()
+            'MsgBox("re_turn strIPAddress" & strIPAddress)
 
+            Return strIPAddress
+        End If
+        Return 0
         'MessageBox.Show("Host Name: " & strHostName & "; IP Address: " & strIPAddress)
     End Function
     Public Sub set_data_handheld()
+
         Dim ip_han As String = GetIPAddress()
         Dim str_get As String = "select * from DEVICE_MASTER DM , DEVICE_SETTING_LOG DSL  where DM.DEVICE_IP = '" & ip_han & "' and DM.DEVICE_NAME = DSL.DEVICE_PAIR1 and DM.DEVICE_STATUS = '1' and DSL.STATUS = '1'"
         Dim command As SqlCommand = New SqlCommand(str_get, myConn)
@@ -499,7 +514,6 @@ Public Class main
             MsgBox("error next page setting")
         End Try
     End Sub
-
     Private Sub PictureBox2_Click_3(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
         Try
             Module1.MENU_ID = "6"
@@ -606,5 +620,4 @@ Public Class main
         Me.Hide()
 
     End Sub
-    
 End Class

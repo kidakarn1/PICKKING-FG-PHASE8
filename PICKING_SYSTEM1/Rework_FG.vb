@@ -87,7 +87,6 @@ Public Class Rework_FG
             myconn_fa = connect_db.conn_fa()
         Finally
             Panel_confirm.Visible = False
-
             select_menu()
             scan_qr.Focus()
         End Try
@@ -188,7 +187,7 @@ Public Class Rework_FG
                 M_SLIP_CD = SLIP_CD
                 num += 1
                 log_rework_fg(count, wi, item_cd, scan_qty, scan_lot, tag_typ, tag_readed, scan_emp, term_cd, updated_date, updated_by, updated_seq, com_flg_table, tag_remain_qty, Create_date, Create_By, Line_cd, delivery_date, id_sup, menu, DEL, SLIP_CD_table)
-                ' return_flg(tag_readed, scan_qty)
+                return_flg(tag_readed, scan_qty)
             Next
             Dim str_update_flg = "update sup_scan_pick_detail set  com_flg = '8' where SLIP_CD = '" & M_SLIP_CD & "'"
             Dim cmd_update_flg As SqlCommand = New SqlCommand(str_update_flg, myConn)
@@ -223,7 +222,7 @@ Public Class Rework_FG
         End Try
     End Sub
     Public Sub return_flg(ByVal tag_readed As String, ByVal scan_qty As String)
-        Dim str_update_qr = "EXEC [dbo].[API_return_flg]  @scan_qty='" & scan_qty & "', @flg_status ='2' ,@read_qr = '" & tag_readed & "'"
+        Dim str_update_qr = "EXEC [dbo].[API_return_flg]  @scan_qty='" & scan_qty & "', @flg_status ='8' ,@read_qr = '" & tag_readed & "'"
         Dim cmd_update_qr As SqlCommand = New SqlCommand(str_update_qr, myconn_fa)
         reader = cmd_update_qr.ExecuteReader()
         reader.Close()
@@ -254,6 +253,10 @@ Public Class Rework_FG
     End Sub
 
     Private Sub Panel_select_GotFocus(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Panel_select.GotFocus
+
+    End Sub
+
+    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
 
     End Sub
 End Class

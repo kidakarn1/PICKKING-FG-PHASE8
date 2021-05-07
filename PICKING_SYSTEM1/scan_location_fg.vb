@@ -62,6 +62,7 @@ Public Class scan_location_fg
     Dim dat As String = String.Empty
     Dim check_scan As String = "NOOO"
     Public ml As Integer = 0
+    Public count_net As Integer = 0
     Private Sub scan_location_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             Dim connect_db = New connect()
@@ -154,7 +155,7 @@ m:
                             If loca = Module1.FG_LOCATIONS Then
                                 Timer1.Enabled = True
                                 Panel2.Visible = True
-                                If ml = 4 Then
+                                If ml = 1 Then
                                     check()
                                 End If
                                 'Button1.Show()
@@ -223,13 +224,25 @@ m:
 
     Public Sub check()
         'Panel2.Visible = True
-        Module1.FG_LOCATIONS = Location.Text
-        Dim part_detail_fg As part_detail_fg = New part_detail_fg()
-        Panel2.Visible = False
-        Timer1.Enabled = False
-        ml = 0
-        part_detail_fg.Show()
-        Me.Hide()
+        If Api.check_net() = True Then
+            Module1.FG_LOCATIONS = Location.Text
+
+            'MsgBox("L1")
+            Panel2.Visible = False
+            Timer1.Enabled = False
+            ml = 0
+            Try
+                Dim part_detail_fg As part_detail_fg = New part_detail_fg()
+                part_detail_fg.Show()
+            Catch ex As Exception
+                MsgBox("ERROR LOAD PAGE" & vbNewLine & ex.Message, 16, "Status ")
+                Dim part_detail_fg As part_detail_fg = New part_detail_fg()
+                part_detail_fg.Show()
+            End Try
+            Me.Hide()
+        Else
+            MsgBox("อินเตอร์เน็ตไม่เสถียร กรุณา กด ENT เพื่อ รอ INTERNET")
+        End If
     End Sub
 
     Private Sub Panel1_GotFocus(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Panel1.GotFocus
@@ -299,6 +312,19 @@ m:
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         ml += 1
+recheck_net:
+        If count_net = 5000 Then
+            If Api.check_net <> True Then
+                Timer1.Enabled = False
+                MsgBox("อินเตอร์เน็ตไม่เสถียร กรุณา กด ENT เพื่อ รอ INTERNET")
+                Timer1.Enabled = True
+                GoTo recheck_net
+            Else
+                count_net = 0
+            End If
+        Else
+            count_net += 1
+        End If
         If ml <= 1 Then
             PictureBox10.Visible = True
             PictureBox11.Visible = False
@@ -308,6 +334,7 @@ m:
             PictureBox15.Visible = False
             PictureBox16.Visible = False
             PictureBox17.Visible = False
+            check()
         ElseIf ml = 2 Then
             PictureBox10.Visible = False
             PictureBox11.Visible = True
@@ -335,7 +362,7 @@ m:
             PictureBox15.Visible = False
             PictureBox16.Visible = False
             PictureBox17.Visible = False
-            check()
+
         ElseIf ml = 5 Then
             PictureBox10.Visible = False
             PictureBox11.Visible = False
@@ -372,7 +399,7 @@ m:
             PictureBox15.Visible = False
             PictureBox16.Visible = False
             PictureBox17.Visible = True
-            ml = 0
+            'ml = 0
         End If
     End Sub
 End Class

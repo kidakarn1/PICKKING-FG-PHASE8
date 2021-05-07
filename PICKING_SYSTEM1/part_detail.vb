@@ -17,6 +17,7 @@ Imports System.Data.SqlClient
 Public Class part_detail
     Inherits Form
     Public myConn As SqlConnection
+    Public myConn_fa As SqlConnection
     Public myConn_Resive As SqlConnection
     Public REMAIN_ID As String = "NO_DATA"
     Public ID_table_detail As String = "NO_DATA"
@@ -120,13 +121,22 @@ Public Class part_detail
 
     Private Sub part_detail_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
+re_connect:
             path = Me.GetType().Assembly.GetModules()(0).FullyQualifiedName
             Dim en As Int32 = path.LastIndexOf("\")
             path = path.Substring(0, en)
             path = Me.GetType().Assembly.GetModules()(0).FullyQualifiedName
             Dim connect_db = New connect()
             myConn = connect_db.conn()
+            myConn_fa = connect_db.conn_fa()
+        Catch
+            MsgBox("connect poen please check open")
+            If reader.Read() = True Then
+                reader.Close()
+                GoTo re_connect
+            End If
         Finally
+
 
             ' Dim path = Me.GetType().Assembly.GetModules()(0).FullyQualifiedName
             'MsgBox(path)
@@ -1560,6 +1570,9 @@ remain_seq_FW:
 
         Dim pinlen As UInt32 = CType(pin.Length, UInt32)
 loop_check_open_printer:
+        If Bluetooth.btBluetoothOpen = True Then
+            Bluetooth.btBluetoothClose()
+        End If
         If Bluetooth_Connect_MB200i(stInfoSet, pin, pinlen) = True Then
             'ButtonF2.Enabled = False
             Dim stInfoSet1 As New LibDef.BT_BLUETOOTH_TARGET()   '  Bluetooth device information

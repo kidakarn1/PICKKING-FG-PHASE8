@@ -71,6 +71,7 @@ Partial Public Class main
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.Panel3.Controls.Add(Me.PictureBox18)
         Me.Panel3.Controls.Add(Me.PictureBox22)
         Me.Panel3.Controls.Add(Me.Panel2)
         Me.Panel3.Controls.Add(Me.Label13)
@@ -78,7 +79,6 @@ Partial Public Class main
         Me.Panel3.Controls.Add(Me.PictureBox20)
         Me.Panel3.Controls.Add(Me.Label12)
         Me.Panel3.Controls.Add(Me.PictureBox19)
-        Me.Panel3.Controls.Add(Me.PictureBox18)
         Me.Panel3.Controls.Add(Me.Label11)
         Me.Panel3.Controls.Add(Me.PictureBox9)
         Me.Panel3.Controls.Add(Me.setting)
