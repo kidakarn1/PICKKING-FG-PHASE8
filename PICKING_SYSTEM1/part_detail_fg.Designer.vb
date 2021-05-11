@@ -799,6 +799,9 @@ Partial Public Class part_detail_fg
         Me.PictureBox1.Size = New System.Drawing.Size(470, 590)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         '
+        'Timer1
+        '
+        '
         'part_detail_fg
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)

@@ -63,6 +63,7 @@ Public Class Detail_rework_fg
             'myConn.Open()
             Dim connect_db = New connect()
             myConn = connect_db.conn()
+            myconn_fa = connect_db.conn_fa()
             show_box.Text = 0
             show_qty.Text = 0
             select_menu()
@@ -97,74 +98,70 @@ Public Class Detail_rework_fg
             If TAG_ID(0) = Not Nothing Then
                 MsgBox("NOT SCAN")
             End If
-
             Dim count As Integer = 0
             Dim index As Integer = 0
             For Each key_main In TAG_ID
-                Dim sql = "select * from sup_scan_pick_detail where id = '" & TAG_ID(index) & "' and com_flg = '1'"
-                Dim command As SqlCommand = New SqlCommand(sql, myConn)
+                Dim sql = "select * from FA_TAG_FG where IND = '" & TAG_ID(index) & "' and FLG_STATUS = '2'"
+                Dim command As SqlCommand = New SqlCommand(sql, myconn_fa)
                 reader = command.ExecuteReader()
                 Do While reader.Read()
-                    F_wi.Add(reader.Item(1))
-                    F_item_cd.Add(reader.Item(2))
-                    F_scan_qty.Add(reader.Item(3))
-                    F_scan_lot.Add(reader.Item(4))
-                    F_tag_typ.Add(reader.Item(5))
-                    F_tag_readed.Add(reader.Item(6))
-                    F_scan_emp.Add(reader.Item(7))
-                    F_term_cd.Add(reader.Item(8))
-                    F_updated_date.Add(reader.Item(9))
-                    F_updated_by.Add(reader.Item(10))
-                    F_updated_seq.Add(reader.Item(11))
-                    F_com_flg.Add(reader.Item(12))
-                    F_tag_remain_qty.Add(reader.Item(13))
-                    F_Create_Date.Add(reader.Item(14))
-                    F_Create_By.Add(reader.Item(15))
-                    F_Line_cd.Add(reader.Item(17))
-                    F_delivery_date.Add(reader.Item(19))
-                    F_id_sup.Add(reader.Item(0))
-                    F_menu.Add(reader.Item(16))
-                    F_DEL.Add(reader.Item(18))
-                    F_SLIP_CD.Add(reader.Item(19))
-                    count += 1
-                    count_arr_fw = count_arr_fw + 1
+                    ' F_wi.Add(reader.Item(1))
+                    ' F_item_cd.Add(reader.Item(2))
+                    F_scan_qty.Add(reader.Item(2))
+                    'F_scan_lot.Add(reader.Item(4))
+                    'F_tag_typ.Add(reader.Item(5))
+                    F_tag_readed.Add(reader.Item(1))
+                    'F_scan_emp.Add(reader.Item(7))
+                    'F_term_cd.Add(reader.Item(8))
+                    'F_updated_date.Add(reader.Item(9))
+                    'F_updated_by.Add(reader.Item(10))
+                    'F_updated_seq.Add(reader.Item(11))
+                    'F_com_flg.Add(reader.Item(12))
+                    'F_tag_remain_qty.Add(reader.Item(13))
+                    'F_Create_Date.Add(reader.Item(14))
+                    'F_Create_By.Add(reader.Item(15))
+                    'F_Line_cd.Add(reader.Item(17))
+                    'F_delivery_date.Add(reader.Item(19))
+                    'F_id_sup.Add(reader.Item(0))
+                    'F_menu.Add(reader.Item(16))
+                    'F_DEL.Add(reader.Item(18))
+                    'F_SLIP_CD.Add(reader.Item(19))
+                    'count += 1
+                    'count_arr_fw = count_arr_fw + 1
                 Loop
                 reader.Close()
                 Dim num As Integer = 0
-                For Each key In F_wi
-                    Dim wi As String = key
-                    Dim item_cd As String = F_item_cd(num)
+                For Each key In F_tag_readed
+                    ' Dim wi As String = key
+                    ' Dim item_cd As String = F_item_cd(num)
                     Dim scan_qty As String = F_scan_qty(num)
-                    Dim scan_lot As String = F_scan_lot(num)
-                    Dim tag_typ As String = F_tag_typ(num)
+                    ' Dim scan_lot As String = F_scan_lot(num)
+                    ' Dim tag_typ As String = F_tag_typ(num)
                     Dim tag_readed As String = F_tag_readed(num)
-                    Dim scan_emp As String = F_scan_emp(num)
-                    Dim term_cd As String = F_term_cd(num)
-                    Dim updated_date As String = F_updated_date(num)
-                    Dim updated_by As String = F_updated_by(num)
-                    Dim updated_seq As String = F_updated_seq(num)
-                    Dim com_flg_table As String = F_com_flg(num)
-                    Dim tag_remain_qty As String = F_tag_remain_qty(num)
-                    Dim Create_date As String = F_Create_Date(num)
-                    Dim Create_By As String = F_Create_By(num)
-                    Dim Line_cd As String = F_Line_cd(num)
-                    Dim id_sup As String = F_id_sup(num)
-                    Dim menu As String = F_menu(num)
-                    Dim DEL As String = F_DEL(num)
-                    Dim SLIP_CD_table As String = F_SLIP_CD(num)
-                    Dim delivery_date As String = F_delivery_date(num)
-                    M_SLIP_CD = SLIP_CD
+                    ' Dim scan_emp As String = F_scan_emp(num)
+                    ' Dim term_cd As String = F_term_cd(num)
+                    ' Dim updated_date As String = F_updated_date(num)
+                    ' Dim updated_by As String = F_updated_by(num)
+                    ' Dim updated_seq As String = F_updated_seq(num)
+                    ' Dim com_flg_table As String = F_com_flg(num)
+                    ' Dim tag_remain_qty As String = F_tag_remain_qty(num)
+                    ' Dim Create_date As String = F_Create_Date(num)
+                    ' Dim Create_By As String = F_Create_By(num)
+                    ' Dim Line_cd As String = F_Line_cd(num)
+                    ' Dim id_sup As String = F_id_sup(num)
+                    ' Dim menu As String = F_menu(num)
+                    ' Dim DEL As String = F_DEL(num)
+                    ' Dim SLIP_CD_table As String = F_SLIP_CD(num)
+                    ' Dim delivery_date As String = F_delivery_date(num)
+                    'M_SLIP_CD = SLIP_CD
                     num += 1
-                    'MsgBox("data retuen  = " & item_cd)
-                    'MsgBox("123")
                     Try
-                        log_rework_fg(count, wi, item_cd, scan_qty, scan_lot, tag_typ, tag_readed, scan_emp, term_cd, updated_date, updated_by, updated_seq, com_flg_table, tag_remain_qty, Create_date, Create_By, Line_cd, delivery_date, id_sup, menu, DEL, SLIP_CD_table)
-                        Dim str_update_flg = "update sup_scan_pick_detail set  com_flg = '8' where id = '" & id_sup & "'"
-                        Dim cmd_update_flg As SqlCommand = New SqlCommand(str_update_flg, myConn)
-                        reader = cmd_update_flg.ExecuteReader()
-                        reader.Close()
-                        ' return_flg(tag_readed, scan_qty)
-
+                        ' log_rework_fg(count, wi, item_cd, scan_qty, scan_lot, tag_typ, tag_readed, scan_emp, term_cd, updated_date, updated_by, updated_seq, com_flg_table, tag_remain_qty, Create_date, Create_By, Line_cd, delivery_date, id_sup, menu, DEL, SLIP_CD_table)
+                        'Dim str_update_flg = "update sup_scan_pick_detail set  com_flg = '8' where id = '" & id_sup & "'"
+                        'Dim cmd_update_flg As SqlCommand = New SqlCommand(str_update_flg, myConn)
+                        'reader = cmd_update_flg.ExecuteReader()
+                        'reader.Close()
+                        return_flg(tag_readed, scan_qty)
                     Catch ex As Exception
                         MsgBox("MOVE FALL")
                     End Try
@@ -196,10 +193,11 @@ Public Class Detail_rework_fg
         End Try
     End Sub
     Public Sub return_flg(ByVal tag_readed As String, ByVal scan_qty As String)
-        Dim str_update_qr = "EXEC [dbo].[API_return_flg]  @scan_qty='" & scan_qty & "', @flg_status ='2' ,@read_qr = '" & tag_readed & "'"
+        Dim str_update_qr = "EXEC [dbo].[API_return_flg]  @scan_qty='" & scan_qty & "', @flg_status ='8' ,@read_qr = '" & tag_readed & "'"
         Dim cmd_update_qr As SqlCommand = New SqlCommand(str_update_qr, myconn_fa)
         reader = cmd_update_qr.ExecuteReader()
         reader.Close()
+
     End Sub
     Public Sub delete_supscan_pick_detail()
         Dim del = "delete from sup_scan_pick_detail where SLIP_CD = '" & M_SLIP_CD & "'"
@@ -217,45 +215,46 @@ Public Class Detail_rework_fg
             Case System.Windows.Forms.Keys.Enter
                 Dim status As String = "NO_DATA"
                 If scan_qr_fg.Text.Length = "103" Then
-                    Dim sql As String = "select count(id) as c_id  , scan_qty , id , com_flg from sup_scan_pick_detail where tag_readed = '" & scan_qr_fg.Text & "'  group by scan_qty , id , com_flg"
-                    Dim command As SqlCommand = New SqlCommand(sql, myConn)
+                    ' Dim sql As String = "select count(id) as c_id  , scan_qty , id , com_flg from sup_scan_pick_detail where tag_readed = '" & scan_qr_fg.Text & "'  group by scan_qty , id , com_flg"
+                    Dim sql As String = "select count(IND) as c_id  , TAG_QTY , IND , FLG_STATUS from FA_TAG_FG where READ_QR = '" & scan_qr_fg.Text & "'  group by TAG_QTY , IND , FLG_STATUS"
+                    Dim command As SqlCommand = New SqlCommand(sql, myconn_fa)
                     reader = command.ExecuteReader()
                     If reader.Read() Then
-                        If reader("c_id").ToString() = "1" Then
-                            If reader("com_flg").ToString() = "8" Then
-                                MsgBox("REWORK ไปแล้ว")
-                            ElseIf reader("com_flg").ToString() = "9" Then
-                                MsgBox("งาน CANCLE ")
-                            ElseIf reader("com_flg").ToString() = "1" Then
-                                For Each key In TAG_QR
-                                    If key = scan_qr_fg.Text Then
-                                        status = "1"
-                                        reader.Close()
-                                        GoTo alert_loop
-                                    End If
-                                Next
-                                TAG_QR.Add(scan_qr_fg.Text)
-                                TAG_ID.Add(reader("id").ToString())
-                                count_box += 1
-                                show_box.Text = count_box
-                                count_qty = CDbl(Val(count_qty)) + CDbl(Val(reader("scan_qty").ToString()))
-                                show_qty.Text = count_qty
-                            End If
-                        Else
-                            MsgBox("QR นี้ ไม่มีของในสต๊อก")
+                        '        If reader("c_id").ToString() = "1" Then
+                        If reader("FLG_STATUS").ToString() = "8" Then
+                            MsgBox("REWORK ไปแล้ว")
+                            ' ElseIf reader("com_flg").ToString() = "9" Then
+                            '    MsgBox("งาน CANCLE ")
+                        ElseIf reader("FLG_STATUS").ToString() = "2" Then
+                            For Each key In TAG_QR
+                                If key = scan_qr_fg.Text Then
+                                    status = "1"
+                                    reader.Close()
+                                    GoTo alert_loop
+                                End If
+                            Next
+                            TAG_QR.Add(scan_qr_fg.Text)
+                            TAG_ID.Add(reader("IND").ToString())
+                            count_box += 1
+                            show_box.Text = count_box
+                            count_qty = CDbl(Val(count_qty)) + CDbl(Val(reader("TAG_QTY").ToString()))
+                            show_qty.Text = count_qty
+                            ' reader.Close()
                         End If
-
+                    Else
+                        MsgBox("QR นี้ ไม่มีของในสต๊อก")
                     End If
+                    'End If
                     reader.Close()
                 Else
                     MsgBox("NO TAG FG")
                 End If
 alert_loop:
-                If status = "1" Then
-                    MsgBox("สแกนซ้ำ")
-                End If
-                scan_qr_fg.Text = ""
-                scan_qr_fg.Focus()
+                    If status = "1" Then
+                        MsgBox("สแกนซ้ำ")
+                    End If
+                    scan_qr_fg.Text = ""
+                    scan_qr_fg.Focus()
         End Select
     End Sub
 

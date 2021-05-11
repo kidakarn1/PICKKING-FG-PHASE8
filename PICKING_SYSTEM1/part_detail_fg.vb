@@ -183,6 +183,7 @@ re_connect:
             alert_reprint.Visible = False
             alert_open_printer.Visible = False
             alert_no_tranfer_data.Visible = False
+            alert_14_day.Visible = False
             Panel7.Visible = False
             'ชั่วคราว'
             ' Panel6.Visible = False
@@ -742,10 +743,12 @@ go_Over_14_days:
                                     check_qr.Visible = True
                                     check_qr.Focus()
                                     GoTo exit_keydown
+                                ElseIf check_washing() = 2 Then
+                                    bool_check_scan = "No_data_tranfer"
+                                    GoTo go_No_data_tranfer
                                 Else
                                     text_tmp.Text = fa_qty
                                 End If
-
 alert_ever:
                                 If bool_check_scan = "ever" Then
                                     text_tmp.Text = ""
@@ -7179,30 +7182,42 @@ query:
 
     End Sub
     Public Function check_washing()
-        '  Dim date_scan_data As String = scan_qty.Text.Substring(44, 8)
-        '  Dim time As DateTime = DateTime.Now
-        '  Dim date_washing_string As String = date_scan_data.Substring(0, 4) & "-" & date_scan_data.Substring(4, 2) & "-" & date_scan_data.Substring(6, 2)
-        '  Dim date_washing As DateTime = date_washing_string
-        '  Dim format As String = "yyyy-MM-dd"
-        'Dim date_washing_format = time.ToString(format)
-
-        'Dim time_washing As DateTime = date_washing.AddDays(14)
-        'Dim format_tommorow = "yyyy-MM-dd"
-        'Dim date_washing_check = time_washing.ToString(format_tommorow)
-        'Dim status As Integer = 0
-
-        '   Dim time_now As DateTime = DateTime.Now
-        '  Dim format_now As String = "yyyy-MM-dd "
-        '  Dim date_now = time_now.ToString(format_now)
-
-
-        ' If date_now >= date_washing_check Then
-        ' status_check_washing = 1
-        ' Else
-        ' status_check_washing = 0
-        ' End If
-        'Return status_check_washing
-        Return 0
+        Dim strCommand = "select MAX(IND) , UPDATED_DATE from FA_TAG_FG  where READ_QR= '" & scan_qty.Text & "' and FLG_STATUS = '2' group by UPDATED_DATE"
+        Dim command2 As SqlCommand = New SqlCommand(strCommand, myConn_fa)
+        reader = command2.ExecuteReader()
+        Dim date_scan_data As String = scan_qty.Text.Substring(44, 8)
+        Dim status_check_data As String = "0"
+        If reader.Read = True Then
+            If reader("UPDATED_DATE").ToString() IsNot Nothing Then
+                date_scan_data = reader("UPDATED_DATE").ToString()
+                status_check_data = "1"
+            End If
+            'MsgBox(date_scan_data)
+        End If
+        reader.Close()
+        If status_check_data = "1" Then
+            Dim time As DateTime = DateTime.Now
+            Dim date_washing_string As String = date_scan_data.Substring(0, 4) & "-" & date_scan_data.Substring(4, 2) & "-" & date_scan_data.Substring(6, 2)
+            Dim date_washing As DateTime = date_washing_string
+            Dim format As String = "yyyy-MM-dd"
+            Dim date_washing_format = time.ToString(format)
+            Dim time_washing As DateTime = date_washing.AddDays(14)
+            Dim format_tommorow = "yyyy-MM-dd"
+            Dim date_washing_check = time_washing.ToString(format_tommorow)
+            Dim status As Integer = 0
+            Dim time_now As DateTime = DateTime.Now
+            Dim format_now As String = "yyyy-MM-dd "
+            Dim date_now = time_now.ToString(format_now)
+            If date_now >= date_washing_check Then
+                status_check_washing = 1
+            Else
+                status_check_washing = 0
+            End If
+        Else
+            status_check_washing = 2
+        End If
+        Return status_check_washing
+        'Return 0
     End Function
     Public Sub confrime_washing()
 
@@ -7215,7 +7230,6 @@ query:
     Private Sub Button3_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
-
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
 recheck_net:
         If count_net = 5000 Then

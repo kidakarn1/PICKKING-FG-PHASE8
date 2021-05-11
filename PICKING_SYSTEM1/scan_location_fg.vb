@@ -65,8 +65,21 @@ Public Class scan_location_fg
     Public count_net As Integer = 0
     Private Sub scan_location_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
-            Dim connect_db = New connect()
-            myConn = connect_db.conn()
+re_connect:
+            If Api.check_net() = True Then
+                Dim connect_db = New connect()
+                myConn = connect_db.conn()
+            Else
+                Timer1.Enabled = False
+                MsgBox("INTERNET DOWN 1 LOSS")
+                GoTo re_connect
+            End If
+        Catch
+            MsgBox("connect fail please check open")
+            If reader.Read() = True Then
+                reader.Close()
+                GoTo re_connect
+            End If
         Finally
             Panel2.Visible = False
             Button1.Hide()
@@ -226,22 +239,19 @@ m:
         'Panel2.Visible = True
         If Api.check_net() = True Then
             Module1.FG_LOCATIONS = Location.Text
-
-            'MsgBox("L1")
-            Panel2.Visible = False
-            Timer1.Enabled = False
-            ml = 0
             Try
+load_new:
                 Dim part_detail_fg As part_detail_fg = New part_detail_fg()
                 part_detail_fg.Show()
             Catch ex As Exception
-                MsgBox("ERROR LOAD PAGE" & vbNewLine & ex.Message, 16, "Status ")
-                Dim part_detail_fg As part_detail_fg = New part_detail_fg()
+                MsgBox("INTERNET DOWN")
+                part_detail_fg.Close()
                 part_detail_fg.Show()
+                'GoTo load_new
             End Try
             Me.Hide()
         Else
-            MsgBox("อินเตอร์เน็ตไม่เสถียร กรุณา กด ENT เพื่อ รอ INTERNET")
+            MsgBox("INTERNET DOWN PLASE WAIT INTERNET")
         End If
     End Sub
 

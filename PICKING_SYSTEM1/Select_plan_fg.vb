@@ -290,16 +290,16 @@ NEXT_END_WEB_POST:
         ml += 1
         status += 5
 recheck_net:
-        'If count_net = 1000 Then
-        'If Api.check_net <> True Then
-        'MsgBox("อินเตอร์เน็ตไม่เสถียร กรุณา กด ENT เพื่อ รอ INTERNET")
-        'GoTo recheck_net
-        'Else
-        'count_net = 0
-        'End If
-        'Else
-        'count_net += 1
-        'End If
+        If count_net = 1000 Then
+            If Api.check_net <> True Then
+                'MsgBox("อินเตอร์เน็ตไม่เสถียร กรุณา กด ENT เพื่อ รอ INTERNET")
+                GoTo recheck_net
+            Else
+                count_net = 0
+            End If
+        Else
+            count_net += 1
+        End If
         If ml <= 1 Then
             PictureBox10.Visible = True
             PictureBox11.Visible = False
