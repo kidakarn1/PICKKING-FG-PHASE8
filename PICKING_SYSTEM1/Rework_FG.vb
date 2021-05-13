@@ -243,8 +243,9 @@ Public Class Rework_FG
     End Sub
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+        Dim Detail_Rework_fg = New Detail_rework_fg()
+        Detail_Rework_fg.Show()
         Me.Hide()
-        Detail_rework_fg.Show()
     End Sub
 
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
