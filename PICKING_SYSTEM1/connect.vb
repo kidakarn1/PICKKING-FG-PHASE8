@@ -25,7 +25,7 @@ next_connected:
                 myConn.Open()
                 Return myConn
             Else
-                MsgBox("NET หลุด กด ENT")
+                'MsgBox("NET หลุด กด ENT")
                 GoTo next_connected
             End If
 

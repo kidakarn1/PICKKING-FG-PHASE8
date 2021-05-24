@@ -53,6 +53,7 @@ Public Class part_detail_fg
     Public check_po_lot As String = "NODATA"
     Public id_pick_log_supply As String = "NODATA"
     Dim j As Integer = 0
+    Public count_box_check_qr_part As Integer = 0
     Dim count_update_fw As Integer = 0
     Dim count_scan As Integer = 0
     Dim fa_use_total As Integer = 0
@@ -135,7 +136,7 @@ re_connect:
                 Timer1.Enabled = True
             Else
                 Timer1.Enabled = False
-                MsgBox("อินเตอร์เน็ตไม่เสถียร กรุณา กด ENT เพื่อ รอ INTERNET")
+                'MsgBox("อินเตอร์เน็ตไม่เสถียร กรุณา กด ENT เพื่อ รอ INTERNET")
                 GoTo re_connect
             End If
         Catch
@@ -145,7 +146,7 @@ re_connect:
                 GoTo re_connect
             End If
         Finally
-            Panel4.Visible = False
+            'Panel4.Visible = False
             scan_qty.Visible = False
             lb_code_user.Text = main.show_code_id_user()
             lb_code_pd.Text = "FINISH GOOD" 'PD5.lb_code_pd.Text
@@ -171,7 +172,6 @@ re_connect:
             alert_success_remain.Visible = False
             alert_loop.Visible = False
             alert_right_fa.Visible = False
-            Panel5.Visible = False
             alert_reprint.Visible = False
             alert_open_printer.Visible = False
             alert_no_tranfer_data.Visible = False
@@ -632,9 +632,7 @@ exit_scan:
             Case System.Windows.Forms.Keys.Down
 
             Case System.Windows.Forms.Keys.F1
-                Panel4.Visible = True
 
-                user_id.Focus()
 exit_keydown:
         End Select
     End Sub
@@ -1655,13 +1653,20 @@ out:
                         reader.Close()
                         GoTo check_box_part
                     Else
-                        box_control = CDbl(Val(reader("box").ToString())) + 1
+                        count_box_check_qr_part += 1
+                        If count_box_check_qr_part = 1 Then
+                            box_control = CDbl(Val(reader("box").ToString())) + 1
+                        Else
+                            reader.Close()
+                            GoTo plus_box
+                        End If
                         reader.Close()
                     End If
 
                 End If
 check_box_part:
                 If status_box = 1 Then
+plus_box:
                     Dim check_box_part = "SELECT CASE WHEN MAX (BOX_CONTROL) IS NULL THEN 0 ELSE MAX (BOX_CONTROL) END AS box FROM check_qr_part WHERE SLIP_CD = '" & Module1.SLIP_CD & "'"
                     Dim cmd_check_box_part As SqlCommand = New SqlCommand(check_box_part, myConn)
                     reader = cmd_check_box_part.ExecuteReader()
@@ -1921,6 +1926,7 @@ check_box_part:
         scan_qty.Visible = False
     End Sub
     Public Sub set_default_data()
+        count_box_check_qr_part = 0
         QTY_INSERT_LOT_PO = 0.0
         Module1.SCAN_QTY_TOTAL = 0.0
         Module1.show_data_supply = 0.0
@@ -2060,53 +2066,6 @@ out:
         check_count__data = scan_qty_total
         Return count
     End Function
-    Public Sub WEB_POST_Cut_stock_frith_in_out(ByVal PO As String, ByVal F_item_cd As String, ByVal scan_qty As String, ByVal tag_readed As String, ByVal tag_seq As String, ByVal com_flg_table As String, ByVal tag_remain_qty As String)
-        Try
-            Dim Code_suppier As String = "no_data"
-            Code_suppier = tag_readed.Substring(37, 5)
-            Dim qty_stock As String = "NODATA"
-            Dim id As String = "NO_DATA"
-            Dim qty_check As Integer = 0
-            Dim qty_check_remain As Integer = 0
-            Dim total_qty As Integer = 0
-            Dim count As String = "0"
-
-            Dim strCommand As String = "SELECT DISTINCT c.id , c.ITEM_CD, c.PO, c.CODE_SUPPIER, c.LT  , c.id as id , c.qty as qty FROM ( SELECT SUBSTRING (AB.LOT_RECEIVE, 0, 6) AS CODE_SUPPIER, AB.com_flg, AB.ITEM_CD AS ITEM_CD, AB.PUCH_ODR_CD AS PO, AB.LOT_RECEIVE AS LT  , AB.qty as qty  , AB.id as id  FROM sup_frith_in_out AS AB ) c WHERE c.com_flg = 0 AND c.PO = '" & PO & "' AND c.ITEM_CD = '" & F_item_cd & "' AND c.CODE_SUPPIER = '" & Code_suppier & "' "
-            'MsgBox("strCommand =====<><><>>>>>>" & strCommand)
-            Dim command As SqlCommand = New SqlCommand(strCommand, myConn)
-            reader = command.ExecuteReader()
-            'MsgBox("strCommand WEB == >" & strCommand)
-            Do While reader.Read = True
-                id = reader("id").ToString()
-                qty_stock = reader("qty").ToString()
-            Loop
-            reader.Close()
-            If com_flg_table = "1" Then
-                total_qty = qty_stock - scan_qty
-                '  MsgBox("ไม่มี REMAIN")
-            ElseIf com_flg_table = "0" Then
-                ' MsgBox("เหลือ REMAIN")
-                total_qty = scan_qty - tag_remain_qty
-                total_qty = qty_stock - total_qty
-            End If
-            Dim com_flg As Integer = 0
-            If total_qty <= 0 Then
-                total_qty = 0
-                com_flg = 1
-            End If
-
-
-            Dim strCommand2 As String = "update sup_frith_in_out set qty  = '" & total_qty & "' ,com_flg = '" & com_flg & "' where id = '" & id & "'"
-            'MsgBox("UPDATE WEBPOST = " & strCommand2)
-            Dim command2 As SqlCommand = New SqlCommand(strCommand2, myConn)
-            reader = command2.ExecuteReader()
-            reader.Close()
-            'MsgBox("COMPLETE CUT STOCK")
-        Catch ex As Exception
-            MsgBox("ERROR UPDATE CUT_STOCK FAILL " & vbNewLine & ex.Message, 16, "Status")
-        End Try
-    End Sub
-
     Public Function FW_Cut_stock_frith_in_out(ByVal WI As String, ByVal F_item_cd As String, ByVal scan_qty As String, ByVal tag_readed As String, ByVal tag_seq As String, ByVal com_flg_table As String, ByVal tag_remain_qty As String, ByVal scan_lot As String)
         Dim c_re_check As Integer = 0
         Return True
@@ -2800,43 +2759,9 @@ out:
                 End If
         End Select
     End Sub
-    Private Sub end_pa_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Panel4.Visible = False
-    End Sub
 
-    Private Sub PictureBox6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Panel4.Visible = False
-        scan_qty.Focus()
-    End Sub
 
-    Private Sub user_id_TextChanged(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles user_id.KeyDown
-        Select Case e.KeyCode
-            Case System.Windows.Forms.Keys.Enter
-                password.Focus()
-        End Select
-    End Sub
-
-    Private Sub PictureBox5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox5.Click
-        Dim strCommand12345678 As String = "select count(su.su_id) as c_id  , su.sug_id as per from sys_users su  , sys_user_groups sug  where su.emp_id = '" & user_id.Text & "' and su.sys_pass = '" & password.Text & "' and su.sug_id  = sug.sug_id and su.enable = '1' GROUP BY su.sug_id"
-        Dim cmd As SqlCommand = New SqlCommand(strCommand12345678, myConn)
-        reader = cmd.ExecuteReader()
-
-        If reader.Read() Then
-            If reader("c_id").ToString() = "1" And reader("per").ToString() <> "3" Then
-                Module1.user_reprint = user_id.Text()
-                Label11.Text = "QTY BEFORE : 0"
-                Label10.Text = "QTY AFTER : 0"
-                Panel5.Visible = True
-                Panel4.Visible = False
-                TextBox1.Focus()
-            Else
-                MsgBox("คุณไม่มีสิทธิ์")
-            End If
-        Else
-            MsgBox("คุณไม่มีสิทธิ์")
-        End If
-        reader.Close()
-    End Sub
+   
     Public Sub get_data_tetail()
         scan_qty.Visible = False
         Panel6.Visible = True
@@ -2895,40 +2820,6 @@ Exit_count2:
         scan_qty.Visible = True
         Panel6.Visible = False
         scan_qty.Focus()
-    End Sub
-
-    Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
-        Label11.Text = "QTY BEFORE : 0"
-        TextBox1.Text = ""
-        TextBox2.Text = ""
-        Label10.Text = "QTY AFTER : 0"
-        TextBox1.Focus()
-    End Sub
-
-    Private Sub TextBox1_Text_key_down(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TextBox1.KeyDown
-        Select Case e.KeyCode
-            Case System.Windows.Forms.Keys.Enter
-                If Len(TextBox1.Text) = "62" Then
-                    Dim n_old As Double = 0.0
-                    n_old = CDbl(Val(TextBox1.Text.Substring(51, 8)))
-                    Dim qty_old As String = n_old
-                    Label11.Text = "QTY BEFORE :" & qty_old
-                ElseIf Len(TextBox1.Text) = "103" Then
-                    Dim qty_old As String = TextBox1.Text.Substring(52, 6)
-                    Label11.Text = "QTY BEFORE :" & Trim(qty_old)
-                Else
-                    Label11.Text = "QTY BEFORE : 0"
-                End If
-                TextBox2.Focus()
-        End Select
-    End Sub
-
-    Private Sub PictureBox8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox8.Click, PictureBox6.Click
-        user_id.Text = ""
-        password.Text = ""
-        scan_qty.Focus()
-        Panel5.Visible = False
-        Panel4.Visible = False
     End Sub
 
     Public Sub insert_pick_log(ByVal REMAIN_ID As String, ByVal F_wi As String, ByVal used_qty As Double, ByVal create_date As String, ByVal create_by As String, ByVal updated_date As String, ByVal updated_by As String, ByVal scan_lot As String, ByVal updated_seq As String, ByVal F_item_cd As String)
@@ -3130,9 +3021,7 @@ query:
 
     End Sub
 
-    Private Sub TextBox2_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox2.TextChanged
-        Label10.Text = "QTY AFTER : " & TextBox2.Text
-    End Sub
+
 
     Private Sub check_qr_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles check_qr.KeyDown
         Select Case e.KeyCode
@@ -3229,7 +3118,7 @@ query:
             Dim date_washing_check = time_washing.ToString(format_tommorow)
             Dim status As Integer = 0
             Dim time_now As DateTime = DateTime.Now
-            Dim format_now As String = "yyyy-MM-dd "
+            Dim format_now As String = "yyyy-MM-dd"
             Dim date_now = time_now.ToString(format_now)
             If date_now >= date_washing_check Then
                 status_check_washing = 1
@@ -3249,7 +3138,7 @@ recheck_net:
         If count_net = 5000 Then
             If Api.check_net <> True Then
                 Timer1.Enabled = False
-                MsgBox("อินเตอร์เน็ตไม่เสถียร กรุณา กด ENT เพื่อ รอ INTERNET")
+                ' MsgBox("อินเตอร์เน็ตไม่เสถียร กรุณา กด ENT เพื่อ รอ INTERNET")
                 Timer1.Enabled = True
                 GoTo recheck_net
             Else
@@ -3259,4 +3148,5 @@ recheck_net:
             count_net += 1
         End If
     End Sub
+
 End Class

@@ -279,55 +279,6 @@ reconnect:
         pd_user = ""
         Fullname = ""
     End Sub
-
-    Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
-
-    Private Sub PictureBox2_Click_2(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
-
-    Private Sub WebBrowser1_DocumentCompleted(ByVal sender As System.Object, ByVal e As System.Windows.Forms.WebBrowserDocumentCompletedEventArgs)
-
-    End Sub
-
-    Private Sub Panel3_GotFocus(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
-
-    Private Sub emp_cd_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
-
-    Private Sub Panel3_GotFocus_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Panel3.GotFocus
-
-    End Sub
-
-    Private Sub PictureBox6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
-
-    Private Sub Label4_ParentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label4.ParentChanged
-
-    End Sub
-
-
-    Private Sub Label5_ParentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label5.ParentChanged
-
-    End Sub
-
-    Private Sub Label3_ParentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
-
-    Private Sub Label7_ParentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label7.ParentChanged
-
-    End Sub
-
-    Private Sub Label6_ParentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label6.ParentChanged
-
-    End Sub
     Public Sub loader()
         Panel2.Visible = True
     End Sub
@@ -358,9 +309,9 @@ reconnect:
         ml += 1
         status += 5
 recheck_net:
-        If count_net = 5000 Then
+        If count_net >= 5000 Then
             If Api.check_net <> True Then
-                MsgBox("อินเตอร์เน็ตไม่เสถียร กรุณา กด ENT เพื่อ รอ INTERNET")
+                ' MsgBox("อินเตอร์เน็ตไม่เสถียร กรุณา กด ENT เพื่อ รอ INTERNET")
                 GoTo recheck_net
             Else
                 count_net = 0

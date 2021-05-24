@@ -94,7 +94,7 @@ re_connect:
                 myconn_fa = connect_db.conn_fa()
             Else
                 Timer1.Enabled = False
-                MsgBox("อินเตอร์เน็ตไม่เสถียร กรุณา กด ENT เพื่อ รอ INTERNET")
+                ' MsgBox("อินเตอร์เน็ตไม่เสถียร กรุณา กด ENT เพื่อ รอ INTERNET")
                 GoTo re_connect
             End If
         Finally

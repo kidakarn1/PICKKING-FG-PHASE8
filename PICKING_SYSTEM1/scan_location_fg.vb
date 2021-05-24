@@ -326,7 +326,7 @@ recheck_net:
         If count_net = 5000 Then
             If Api.check_net <> True Then
                 Timer1.Enabled = False
-                MsgBox("อินเตอร์เน็ตไม่เสถียร กรุณา กด ENT เพื่อ รอ INTERNET")
+                'MsgBox("อินเตอร์เน็ตไม่เสถียร กรุณา กด ENT เพื่อ รอ INTERNET")
                 Timer1.Enabled = True
                 GoTo recheck_net
             Else
