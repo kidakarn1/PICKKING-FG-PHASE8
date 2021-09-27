@@ -42,12 +42,13 @@ reconnect:
             If Api.check_net() = True Then
                 Dim connect_db = New connect()
                 myConn = connect_db.conn()
-                set_data_handheld()
+
             Else
-                MsgBox("กรุณา รอ Internet")
+                'MsgBox("กรุณา รอ Internet")
                 GoTo reconnect
             End If
         Finally
+            'Timer1.Enabled = True
             Panel1.Show()
             PictureBox8.Visible = False
             Label4.Visible = False
@@ -55,6 +56,7 @@ reconnect:
             'Panel1.Visible = True
             PictureBox4.Visible = False
             PictureBox20.Visible = False
+            set_data_handheld()
             'PictureBox9.Visible = False
             Label7.Visible = False
             Me.emp_cd.Focus()
@@ -550,7 +552,6 @@ recheck_net:
             Application.DoEvents()
             Dim cut_ng As cut_ng = New cut_ng()
             cut_ng.Show()
-            Me.Hide()
         Catch ex As Exception
             MsgBox("error next page cut_ng")
         End Try
@@ -569,6 +570,5 @@ recheck_net:
     Private Sub PictureBox22_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox22.Click
         Rework_FG.Show()
         Me.Hide()
-
     End Sub
 End Class

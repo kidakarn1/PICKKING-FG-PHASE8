@@ -566,6 +566,12 @@ Partial Public Class part_detail_fg
         '
         'Panel7
         '
+        Me.Panel7.Controls.Add(Me.alert_no_tranfer_data)
+        Me.Panel7.Controls.Add(Me.alert_open_printer)
+        Me.Panel7.Controls.Add(Me.alert_pickdetail_ok)
+        Me.Panel7.Controls.Add(Me.alert_detail)
+        Me.Panel7.Controls.Add(Me.alert_tag_remain)
+        Me.Panel7.Controls.Add(Me.alert_right_fa)
         Me.Panel7.Controls.Add(Me.alert_14_day)
         Me.Panel7.Controls.Add(Me.alert_pa)
         Me.Panel7.Controls.Add(Me.alert_success_remain)
@@ -573,12 +579,6 @@ Partial Public Class part_detail_fg
         Me.Panel7.Controls.Add(Me.alert_reprint)
         Me.Panel7.Controls.Add(Me.alert_loop)
         Me.Panel7.Controls.Add(Me.alert_pickdetail_number)
-        Me.Panel7.Controls.Add(Me.alert_no_tranfer_data)
-        Me.Panel7.Controls.Add(Me.alert_open_printer)
-        Me.Panel7.Controls.Add(Me.alert_pickdetail_ok)
-        Me.Panel7.Controls.Add(Me.alert_detail)
-        Me.Panel7.Controls.Add(Me.alert_tag_remain)
-        Me.Panel7.Controls.Add(Me.alert_right_fa)
         Me.Panel7.Location = New System.Drawing.Point(57, 171)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(413, 351)

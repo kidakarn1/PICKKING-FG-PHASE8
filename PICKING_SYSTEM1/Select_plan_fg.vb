@@ -123,6 +123,7 @@ re_connect:
             ComboBox2.Items.Add("04:00")
             ComboBox2.SelectedIndex = 0
             load_combobox1()
+            Timer1.Enabled = True
         End Try
     End Sub
     Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)

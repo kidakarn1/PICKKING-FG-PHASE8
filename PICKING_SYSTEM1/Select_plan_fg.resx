@@ -273,7 +273,7 @@
     <value>Yu Gothic UI, 18pt, style=Bold</value>
   </data>
   <data name="OK_CON.Location" type="System.Drawing.Point, System.Drawing">
-    <value>351, 536</value>
+    <value>299, 536</value>
   </data>
   <data name="OK_CON.Size" type="System.Drawing.Size, System.Drawing">
     <value>103, 45</value>

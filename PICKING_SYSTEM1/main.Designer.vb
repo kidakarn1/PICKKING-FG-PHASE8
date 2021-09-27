@@ -21,6 +21,7 @@ Partial Public Class main
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(main))
         Me.Panel3 = New System.Windows.Forms.Panel
+        Me.PictureBox18 = New System.Windows.Forms.PictureBox
         Me.PictureBox22 = New System.Windows.Forms.PictureBox
         Me.Panel2 = New System.Windows.Forms.Panel
         Me.Label10 = New System.Windows.Forms.Label
@@ -37,7 +38,6 @@ Partial Public Class main
         Me.PictureBox20 = New System.Windows.Forms.PictureBox
         Me.Label12 = New System.Windows.Forms.Label
         Me.PictureBox19 = New System.Windows.Forms.PictureBox
-        Me.PictureBox18 = New System.Windows.Forms.PictureBox
         Me.Label11 = New System.Windows.Forms.Label
         Me.PictureBox9 = New System.Windows.Forms.PictureBox
         Me.setting = New System.Windows.Forms.PictureBox
@@ -96,6 +96,15 @@ Partial Public Class main
         Me.Panel3.Location = New System.Drawing.Point(3, 3)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(478, 605)
+        '
+        'PictureBox18
+        '
+        Me.PictureBox18.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.PictureBox18.Image = CType(resources.GetObject("PictureBox18.Image"), System.Drawing.Image)
+        Me.PictureBox18.Location = New System.Drawing.Point(245, 323)
+        Me.PictureBox18.Name = "PictureBox18"
+        Me.PictureBox18.Size = New System.Drawing.Size(198, 190)
+        Me.PictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         '
         'PictureBox22
         '
@@ -242,15 +251,6 @@ Partial Public Class main
         Me.PictureBox19.Name = "PictureBox19"
         Me.PictureBox19.Size = New System.Drawing.Size(198, 190)
         Me.PictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        '
-        'PictureBox18
-        '
-        Me.PictureBox18.BackColor = System.Drawing.Color.DarkSlateGray
-        Me.PictureBox18.Image = CType(resources.GetObject("PictureBox18.Image"), System.Drawing.Image)
-        Me.PictureBox18.Location = New System.Drawing.Point(245, 323)
-        Me.PictureBox18.Name = "PictureBox18"
-        Me.PictureBox18.Size = New System.Drawing.Size(198, 190)
-        Me.PictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         '
         'Label11
         '

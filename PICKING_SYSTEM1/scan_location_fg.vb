@@ -71,11 +71,11 @@ re_connect:
                 myConn = connect_db.conn()
             Else
                 Timer1.Enabled = False
-                MsgBox("INTERNET DOWN 1 LOSS")
+                'MsgBox("INTERNET DOWN 1 LOSS")
                 GoTo re_connect
             End If
         Catch
-            MsgBox("connect fail please check open")
+            'MsgBox("connect fail please check open")
             If reader.Read() = True Then
                 reader.Close()
                 GoTo re_connect
@@ -237,6 +237,7 @@ m:
 
     Public Sub check()
         'Panel2.Visible = True
+check_net:
         If Api.check_net() = True Then
             Module1.FG_LOCATIONS = Location.Text
             Try
@@ -244,14 +245,15 @@ load_new:
                 Dim part_detail_fg As part_detail_fg = New part_detail_fg()
                 part_detail_fg.Show()
             Catch ex As Exception
-                MsgBox("INTERNET DOWN")
+                'MsgBox("INTERNET DOWN")
                 part_detail_fg.Close()
                 part_detail_fg.Show()
-                'GoTo load_new
+                GoTo load_new
             End Try
             Me.Hide()
         Else
-            MsgBox("INTERNET DOWN PLASE WAIT INTERNET")
+            GoTo check_net
+            'MsgBox("INTERNET DOWN PLASE WAIT INTERNET")
         End If
     End Sub
 

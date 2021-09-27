@@ -181,6 +181,7 @@ re_connect:
             ' Panel6.Visible = False
             btn_detail_part.Visible = True
             alert_14_day.Visible = False
+            set_qty_check_qr_part()
             'get_data_tetail() 'ปิดโชว์ FIFO
         End Try
     End Sub
@@ -3148,5 +3149,25 @@ recheck_net:
             count_net += 1
         End If
     End Sub
-
+    Public Sub set_qty_check_qr_part()
+        Dim sql As String = "select sum(scan_qty) as TOTAL_QTY from check_qr_part where item_cd = '" & Part_No.Text.Substring(16) & "' and term_cd = '" & main.scan_terminal_id & "'"
+        Dim command2 As SqlCommand = New SqlCommand(sql, myConn)
+        reader = command2.ExecuteReader()
+        Dim count As String = "NO_DATA"
+        Dim flg_status As String = "NO_DATA"
+        Dim check_qty As Double = 0
+        Do While reader.Read = True
+            text_tmp.Text = reader("TOTAL_QTY").ToString()
+            check_qty = CDbl(Val(reader("TOTAL_QTY").ToString()))
+        Loop
+        reader.Close()
+        If check_qty > 0 Then
+            show_number_supply.Text = text_tmp.Text
+            show_number_remain.Text = CDbl(Val(show_qty.Text.Substring(6))) - CDbl(Val(show_number_supply.Text))
+            want_to_tag.Text = CDbl(Val(show_qty.Text.Substring(6))) - CDbl(Val(show_number_supply.Text))
+            scan_qty_total = show_number_supply.Text
+        Else
+            show_number_supply.Text = 0
+        End If
+    End Sub
 End Class
